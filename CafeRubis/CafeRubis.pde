@@ -2,6 +2,9 @@ void setup(){
   
  size(800,600); 
  
+ 
+  fill(255);
+  rect ( (width / 2 + border) , border , width / 2 - (border*2) , (height - (border*2)));
  //loads the data
  loadData(); 
  //prints contents to console
@@ -20,6 +23,7 @@ int bWidth = 200;
 int bHeight = 60;
 //to know if the mouse was clicked/pressed
 boolean clicked;
+int choice;
 
 //creates two global array lists
 ArrayList<Product> products = new ArrayList<Product>();
@@ -76,31 +80,64 @@ void displayProducts(){
     if ( i < (products.size() - 1 )){
       i++;
     }
-    fill(255);
-    rect ( (width / 2 + border) , border , width / 2 - (border*2) , (height - (border*2)));
 
   }
   
 }
 
 void mousePressed(){
-  
-  //getting x values and mapping them to the size of the box
-  float x = map(mouseX, 0 , bWidth , border , (width / 2) - (border*2)); 
-  
-  
-  
-  if (mouseX > border && mouseX < width / 2 - bWidth && mouseY >  border && mouseY < height - border){
+    
+  if (mouseX > border && mouseX < width / 2 - bWidth && mouseY >  border && mouseY < height - (border + (interval * 0))){
     clicked = true;
+    choice = 1;
     
   }
   
+  if (mouseX > border && mouseX < width / 2 - bWidth && mouseY >  border && mouseY < height - (border + (interval * 1))){
+    clicked = true;
+    choice = 2;
+  }
+  
+  if (mouseX > border && mouseX < width / 2 - bWidth && mouseY >  border && mouseY < height - (border + (interval * 2))){
+    clicked = true;
+    choice = 3;
+  }
+  
+  if (mouseX > border && mouseX < width / 2 - bWidth && mouseY >  border && mouseY < height - (border + (interval * 3))){
+    clicked = true;
+    choice = 4;
+  }
+  
+  if (mouseX > border && mouseX < width / 2 - bWidth && mouseY >  border && mouseY < height - (border + (interval * 4))){
+    clicked = true;
+    choice = 5;
+  }
+  
+  if (mouseX > border && mouseX < width / 2 - bWidth && mouseY >  border && mouseY < height - (border + (interval * 5))){
+    clicked = true;
+    choice = 6;
+  }
+  
+  if (mouseX > border && mouseX < width / 2 - bWidth && mouseY > (height - border ) && mouseY < height - (border + (interval * 6))){
+    clicked = true;
+    choice = 7;
+  }
+    
   
   
-  if(clicked){
-    //bill.add(Product);
+  
+  if(clicked && choice == 1 ){
+    //bill.add(p);
     fill(0);
-    text("You clicked something", width / 2, height / 2);
+    textAlign(CENTER);
+    text("You clicked something", (width / 2) + (width / 4), height / 2);
+  }
+    
+  if(clicked && choice == 4 ){
+    //bill.add(p);
+    fill(0);
+    textAlign(CENTER);
+    text("You clicked something", (width / 2) + (width / 4), height / 2);
   }
 
 
